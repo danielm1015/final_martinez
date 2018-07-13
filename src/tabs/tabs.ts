@@ -7,7 +7,8 @@ import { ShoppingCartPage } from "../pages/shopping-cart/shopping-cart";
     template: `
         <ion-tabs>
         <ion-tab [root]="homePage" tabTitle="Home" tabIcon="home"></ion-tab>
-        <ion-tab [root]="shoppingCartPage" tabTitle="Cart" tabIcon="star"></ion-tab>
+        <ion-tab [root]="shoppingCartPage" tabTitle="Cart" tabIcon="cart"></ion-tab>
+        <ion-tab [root]="settingsPage" tabTitle="Settings" tabIcon="settings"></ion-tab>
         </ion-tabs>
     `
 })

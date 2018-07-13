@@ -18,22 +18,23 @@ export class MyApp {
   rootPage:any = TabsPage;
   isAuthenticated = false;
 
+
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, 
     private menuCtrl: MenuController, private authService: AuthenticationService)  {
-    // Firebase imported and initialized
-     // firebase.initializeApp({
+    // // Firebase imported and initialized
+    //   firebase.initializeApp({
         
-     // })
+    //   })
 
-      firebase.auth().onAuthStateChanged(user => {
-        if(user) { 
-          this.isAuthenticated = true;
-          this.rootPage = BargainFeedPage;
-        } else {
-           this.isAuthenticated = false;
-           this.rootPage = HomePage;
-        }
-      })
+    //   firebase.auth().onAuthStateChanged(user => {
+    //     if(user) { 
+    //       this.isAuthenticated = true;
+    //       this.rootPage = BargainFeedPage;
+    //     } else {
+    //        this.isAuthenticated = false;
+    //        this.rootPage = HomePage;
+    //     }
+    //   })
 
       platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
