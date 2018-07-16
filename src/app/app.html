@@ -7,7 +7,7 @@
 
     <ion-content>
         <ion-list>
-                <button ion-item icon-left (click)="onLoad(homePage)"
+                <button ion-item icon-left (click)="onLoad(rootPage)"
                         *ngIf="!isAuthenticated">
                         <ion-icon name="log-in"></ion-icon>
                         Sign In
@@ -17,10 +17,10 @@
                         <ion-icon name="person"></ion-icon>
                         Register
                     </button>
-                <button ion-item icon-left (click)="onLoad(settingPage)"
-                    *ngIf="isAuthenticated">
-                 <ion-icon name="setting"></ion-icon>
-                 Logout
+                <button ion-item icon-left (click)="onLoad(settingsPage)"
+                          *ngIf="isAuthenticated">
+                        <ion-icon name="settings"></ion-icon>
+                        Settings
              </button>
                 <button ion-item icon-left (click)="onLogOut(rootPage)"
                            *ngIf="isAuthenticated">

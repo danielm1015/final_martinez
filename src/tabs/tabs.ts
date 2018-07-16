@@ -6,8 +6,8 @@ import { ShoppingCartPage } from "../pages/shopping-cart/shopping-cart";
     selector: 'page-tabs',
     template: `
         <ion-tabs>
-        <ion-tab [root]="homePage" tabTitle="Home" tabIcon="home"></ion-tab>
-        <ion-tab [root]="shoppingCartPage" tabTitle="Cart" tabIcon="cart"></ion-tab>
+        <ion-tab [root]="homePage" tabTitle="Home" tabsHideOnSubPages="false" tabIcon="home"></ion-tab>
+        <ion-tab [root]="shoppingCartPage" tabsHideOnSubPages="false" tabTitle="Cart" tabIcon="cart"></ion-tab>
         </ion-tabs>
     `
 })

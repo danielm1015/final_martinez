@@ -39,7 +39,7 @@ export class MyApp {
           this.rootPage = BargainFeedPage;
         } else {
            this.isAuthenticated = false;
-           this.rootPage = HomePage;
+           this.rootPage = TabsPage;
         }
       })
 
@@ -59,7 +59,7 @@ export class MyApp {
     onLogOut() {
       this.authService.logout();
       this.menuCtrl.close();
-      this.nav.setRoot(HomePage);
+      this.nav.setRoot(TabsPage);
       
     }
 }

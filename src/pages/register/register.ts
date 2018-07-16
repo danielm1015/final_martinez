@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
 import { NgForm } from '@angular/forms';
 import { AuthenticationService } from '../../services/authentication';
 import { BargainFeedPage } from '../bargain-feed/bargain-feed';
@@ -13,18 +13,30 @@ import { BargainFeedPage } from '../bargain-feed/bargain-feed';
 })
 export class RegisterPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private authService: AuthenticationService) {
-  }
- 
-  goToBargainFeed(){
-    this.navCtrl.push(BargainFeedPage);
+  constructor(private authService: AuthenticationService, 
+              private loadingCtrl: LoadingController,
+              private alertCtrl: AlertController) {
   }
 
   // Register.html Line 17: form data passing through
   onRegister(form: NgForm) {
+      const loading = this.loadingCtrl.create({
+      content: 'Signing you up...'
+    });
+    loading.present();
     this.authService.register(form.value.email, form.value.password)
-    .then(data => console.log(data))
-    .catch(error => console.log(error));
+      .then(data => {
+        loading.dismiss();
+      })
+      .catch(error => {
+        loading.dismiss();
+        const alert = this.alertCtrl.create({
+          title: 'Signup failed!',
+          message: error.message,
+          buttons: ['Ok']
+        });
+        alert.present();
+      });
   }
 
 }

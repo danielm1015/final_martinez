@@ -14,7 +14,7 @@ export class HomePage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SignInPage');
+    console.log('ionViewDidLoad Home ');
   }
   
   goToDisplay(){
