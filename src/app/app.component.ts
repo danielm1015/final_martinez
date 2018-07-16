@@ -8,6 +8,8 @@ import { TabsPage } from '../tabs/tabs';
 import { BargainFeedPage } from '../pages/bargain-feed/bargain-feed';
 import { AuthenticationService } from '../services/authentication';
 import firebase from 'firebase';
+import { RegisterPage } from '../pages/register/register';
+import { SettingsPage } from '../pages/settings/settings';
 
 @Component({
   templateUrl: 'app.html'
@@ -16,25 +18,30 @@ export class MyApp {
 
   @ViewChild(Nav) nav: Nav;
   rootPage:any = TabsPage;
+
+  homePage = HomePage;
+  registerPage = RegisterPage;
+  settingsPage = SettingsPage;
   isAuthenticated = false;
 
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, 
     private menuCtrl: MenuController, private authService: AuthenticationService)  {
-    // // Firebase imported and initialized
-    //   firebase.initializeApp({
-        
-    //   })
+    // Firebase imported and initialized
+      firebase.initializeApp({
+        apiKey: "AIzaSyAS3UMy0oJm4UeYQUUIncpl1QGutXaMdYQ",
+        authDomain: "tabsex-bc319.firebaseapp.com"
+      })
 
-    //   firebase.auth().onAuthStateChanged(user => {
-    //     if(user) { 
-    //       this.isAuthenticated = true;
-    //       this.rootPage = BargainFeedPage;
-    //     } else {
-    //        this.isAuthenticated = false;
-    //        this.rootPage = HomePage;
-    //     }
-    //   })
+      firebase.auth().onAuthStateChanged(user => {
+        if(user) { 
+          this.isAuthenticated = true;
+          this.rootPage = BargainFeedPage;
+        } else {
+           this.isAuthenticated = false;
+           this.rootPage = HomePage;
+        }
+      })
 
       platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.

@@ -10,6 +10,8 @@ import { ShoppingCartPage } from '../pages/shopping-cart/shopping-cart';
 import { TabsPage } from '../tabs/tabs';
 import { BargainFeedPage } from '../pages/bargain-feed/bargain-feed';
 import { AuthenticationService } from '../services/authentication';
+import { RegisterPage } from '../pages/register/register';
+import { SettingsPage } from '../pages/settings/settings';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { AuthenticationService } from '../services/authentication';
     HomePage,
     ShoppingCartPage,
     TabsPage,
-    BargainFeedPage
+    BargainFeedPage,
+    RegisterPage,
+    SettingsPage
   ],
   imports: [
     BrowserModule,
@@ -29,7 +33,9 @@ import { AuthenticationService } from '../services/authentication';
     HomePage,
     ShoppingCartPage,
     TabsPage,
-    BargainFeedPage
+    BargainFeedPage,
+    RegisterPage,
+    SettingsPage
   ],
   providers: [
     StatusBar,

@@ -21,10 +21,10 @@ export class RegisterPage {
   }
 
   // Register.html Line 17: form data passing through
-  // onRegister(form: NgForm) {
-  //   this.authService.register(form.value.email, form.value.password)
-  //   .then(data => console.log(data))
-  //   .catch(error => console.log(error));
-  // }
+  onRegister(form: NgForm) {
+    this.authService.register(form.value.email, form.value.password)
+    .then(data => console.log(data))
+    .catch(error => console.log(error));
+  }
 
 }
