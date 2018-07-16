@@ -5,7 +5,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../tabs/tabs';
-import { BargainFeedPage } from '../pages/bargain-feed/bargain-feed';
 import { AuthenticationService } from '../services/authentication';
 import firebase from 'firebase';
 import { RegisterPage } from '../pages/register/register';
@@ -36,10 +35,10 @@ export class MyApp {
       firebase.auth().onAuthStateChanged(user => {
         if(user) { 
           this.isAuthenticated = true;
-          this.rootPage = BargainFeedPage;
+          this.rootPage = TabsPage;
         } else {
            this.isAuthenticated = false;
-           this.rootPage = TabsPage;
+           this.rootPage = this.homePage;
         }
       })
 
