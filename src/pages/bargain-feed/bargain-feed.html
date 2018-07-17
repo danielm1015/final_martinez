@@ -1,5 +1,5 @@
 <ion-header>
-    <ion-navbar>
+    <ion-navbar color="primary">
       <ion-buttons start>
         <button ion-button icon-only menuToggle>
           <ion-icon name="menu"></ion-icon>
@@ -10,5 +10,12 @@
   </ion-header>
 
 <ion-content padding>
+<h2>Bargain Feed</h2>
+  <ion-list>
+    <button ion-item *ngFor="let feed of (feeds | async)?.results" (click)="openDetails(feed)">
+      button {{ feed.title }} <!--Binding Obserable object data-->
+     </button>
+  </ion-list>
+
 </ion-content>
 

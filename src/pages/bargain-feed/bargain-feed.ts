@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
 import { RssfeedServiceProvider } from '../../providers/rssfeed-service/rssfeed-service';
+import { Observable } from 'rxjs/Observable';
 
 
 @IonicPage()
@@ -10,19 +11,22 @@ import { RssfeedServiceProvider } from '../../providers/rssfeed-service/rssfeed-
 })
 export class BargainFeedPage {
 
+  feeds: Observable<any>; // Observable
+
   // Inject RSS Service 
-  constructor(private rSSService: RssfeedServiceProvider) {
-   this.getRSSFeeds();
+  constructor(private rSSService: RssfeedServiceProvider, public navCtrl: NavController) {
+    this.getRSSFeeds();
   }
 
   // Subscribe and log response object
   getRSSFeeds() {
-    this.rSSService.getRSSFeed()
-      .subscribe(data => console.log(data));
+    this.feeds = this.rSSService.getRSSFeed();
+    this.feeds.subscribe(data => console.log(data));
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad BargainFeedPage');
+  openDetails(feeds) {
+    this.navCtrl.push('FeedsDetailsPage', {feeds: feeds});
   }
+
 
 }
