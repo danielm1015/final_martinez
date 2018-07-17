@@ -4,6 +4,8 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
+import { HttpClientModule } from '@angular/common/http'
+
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ShoppingCartPage } from '../pages/shopping-cart/shopping-cart';
@@ -12,6 +14,7 @@ import { BargainFeedPage } from '../pages/bargain-feed/bargain-feed';
 import { AuthenticationService } from '../services/authentication';
 import { RegisterPage } from '../pages/register/register';
 import { SettingsPage } from '../pages/settings/settings';
+import { RssfeedServiceProvider } from '../providers/rssfeed-service/rssfeed-service';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,8 @@ import { SettingsPage } from '../pages/settings/settings';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -41,7 +45,8 @@ import { SettingsPage } from '../pages/settings/settings';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthenticationService
+    AuthenticationService,
+    RssfeedServiceProvider
   ]
 })
 export class AppModule {}

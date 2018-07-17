@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { RssfeedServiceProvider } from '../../providers/rssfeed-service/rssfeed-service';
 
-/**
- * Generated class for the BargainFeedPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -15,7 +10,15 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class BargainFeedPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  // Inject RSS Service 
+  constructor(private rSSService: RssfeedServiceProvider) {
+   this.getRSSFeeds();
+  }
+
+  // Subscribe and log response object
+  getRSSFeeds() {
+    this.rSSService.getRSSFeed()
+      .subscribe(data => console.log(data));
   }
 
   ionViewDidLoad() {
