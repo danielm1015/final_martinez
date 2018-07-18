@@ -13,7 +13,7 @@
 <h2>Bargain Feed</h2>
   <ion-list>
     <button ion-item *ngFor="let feed of (feeds | async)?.results" (click)="openDetails(feed)">
-      button {{ feed.title }} <!--Binding Obserable object data-->
+      {{ feed.title }} <!--Binding Obserable object data into button-->
      </button>
   </ion-list>
 

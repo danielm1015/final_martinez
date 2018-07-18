@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 import { RssfeedServiceProvider } from '../../providers/rssfeed-service/rssfeed-service';
 import { Observable } from 'rxjs/Observable';
+import { FeedsDetailPage } from '../feeds-detail/feeds-detail';
 
 
 @IonicPage()
@@ -25,7 +26,7 @@ export class BargainFeedPage {
   }
 
   openDetails(feeds) {
-    this.navCtrl.push('FeedsDetailsPage', {feeds: feeds});
+    this.navCtrl.push(FeedsDetailPage, {feeds: feeds});
   }
 
 

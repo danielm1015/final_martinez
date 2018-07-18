@@ -15,6 +15,7 @@ import { AuthenticationService } from '../services/authentication';
 import { RegisterPage } from '../pages/register/register';
 import { SettingsPage } from '../pages/settings/settings';
 import { RssfeedServiceProvider } from '../providers/rssfeed-service/rssfeed-service';
+import { FeedsDetailPage } from '../pages/feeds-detail/feeds-detail';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { RssfeedServiceProvider } from '../providers/rssfeed-service/rssfeed-ser
     TabsPage,
     BargainFeedPage,
     RegisterPage,
+    FeedsDetailPage,
     SettingsPage
   ],
   imports: [
@@ -39,6 +41,7 @@ import { RssfeedServiceProvider } from '../providers/rssfeed-service/rssfeed-ser
     TabsPage,
     BargainFeedPage,
     RegisterPage,
+    FeedsDetailPage,
     SettingsPage
   ],
   providers: [
