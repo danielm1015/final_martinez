@@ -6,6 +6,8 @@ import { Observable } from "rxjs/Observable";
 import { GooglePlus } from '@ionic-native/google-plus';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Platform } from 'ionic-angular';
+import 'rxjs/add/operator/map'
+import 'rxjs/add/operator/do' 
 
 @Component({
   selector: 'google-login',
@@ -26,16 +28,23 @@ export class GoogleLoginComponent {
   googleLogin() {
     
     if(this.platfrom.is('cordova')) {
-      const gplusUser =  this.gplus.login({
-        'webClientId': 'AIzaSyDLk7KfhjjGxe_9n576oI0FHRZv1zslPPQ',
-        'offline': true
-      }).then((obj) => {
-      if (!firebase.auth().currentUser) {
-          firebase.auth().signInWithCredential(firebase.auth.GoogleAuthProvider.credential(obj.idToken))
-        }
-      })
-      .then(res => console.log(res))
-      .catch(err => console.error(err));
-    } 
+      this.nativeGoolgeLogin();
+    }
+    else {
+      console.log("goolge login failed, no cordova platform")
+    }
+  }
+  
+  nativeGoolgeLogin() {
+    const gplusUser =  this.gplus.login({
+      'webClientId': 'AIzaSyDLk7KfhjjGxe_9n576oI0FHRZv1zslPPQ',
+      'offline': true
+    }).then((obj) => {
+    if (!firebase.auth().currentUser) {
+        firebase.auth().signInWithCredential(firebase.auth.GoogleAuthProvider.credential(obj.idToken))
+      }
+    })
+    .then(res => console.log(res))
+    .catch(err => console.error(err));
   } 
 }
