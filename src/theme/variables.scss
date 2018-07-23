@@ -42,10 +42,10 @@ $colors: (
 );
 
 
+
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here
-
 
 
 
@@ -53,7 +53,9 @@ $colors: (
 // --------------------------------------------------
 // Material Design only Sass variables can go here
 
-
+$tabs-md-tabs-md-tab-text-color-active: (
+  primary: rgb(8, 129, 18)
+);
 
 
 // App Windows Variables

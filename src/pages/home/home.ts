@@ -16,13 +16,15 @@ export class HomePage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad Home ');
   }
-  
-  goToDisplay(){
-    this.navCtrl.push(BargainFeedPage);
-  }
-  onSignIn(form: NgForm) {
-    this.authService.signin(form.value.email, form.value.password);
-  }
 
+  onSignIn(form: NgForm) {
+
+    // create credentials object to pass into authentication servce method
+    let crednetials = {
+      email: form.value.email,
+      password: form.value.password
+    }
+    this.authService.signin(crednetials);
+  }
 
 }

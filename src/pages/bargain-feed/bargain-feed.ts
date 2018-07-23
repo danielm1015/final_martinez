@@ -12,7 +12,7 @@ import { FeedsDetailPage } from '../feeds-detail/feeds-detail';
 })
 export class BargainFeedPage {
 
-  feeds: Observable<any>; // Observable
+  feeds: Observable<any>; // Observable which listens for JSON file
 
   // Inject RSS Service 
   constructor(private rSSService: RssfeedServiceProvider, public navCtrl: NavController) {

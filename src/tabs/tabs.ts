@@ -5,9 +5,9 @@ import { BargainFeedPage } from "../pages/bargain-feed/bargain-feed";
 @Component({
     selector: 'page-tabs',
     template: `
-        <ion-tabs>
-        <ion-tab [root]="bargainFeedPage" tabTitle="Home" tabsHideOnSubPages="false" tabIcon="home"></ion-tab>
-        <ion-tab [root]="shoppingCartPage" tabsHideOnSubPages="false" tabTitle="Cart" tabIcon="cart"></ion-tab>
+        <ion-tabs color="dark" tabs-md-tabs-md-tab-text-color-active="primary">
+        <ion-tab [root]="bargainFeedPage" tabTitle="Home"  tabIcon="home"></ion-tab>
+        <ion-tab [root]="shoppingCartPage" tabTitle="Cart" tabIcon="cart"></ion-tab>
         </ion-tabs>
     `
 })

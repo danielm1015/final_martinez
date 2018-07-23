@@ -20,11 +20,17 @@ export class RegisterPage {
 
   // Register.html Line 17: form data passing through
   onRegister(form: NgForm) {
+
+    // create credentials object to pass into authentication servce method
+    let crednetials = {
+      email: form.value.email,
+      password: form.value.password
+    }
       const loading = this.loadingCtrl.create({
       content: 'Signing you up...'
     });
     loading.present();
-    this.authService.register(form.value.email, form.value.password)
+    this.authService.register(crednetials)
       .then(data => {
         loading.dismiss();
       })
