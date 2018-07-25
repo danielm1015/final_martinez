@@ -1,13 +1,8 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, Injectable } from '@angular/core';
+import { IonicPage } from 'ionic-angular';
+import { BehaviorSubject } from '../../../node_modules/rxjs';
 
-/**
- * Generated class for the SettingsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
+@Injectable()
 @IonicPage()
 @Component({
   selector: 'page-settings',
@@ -15,17 +10,28 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class SettingsPage {
 
-  public data: any = {myToggle: true};
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  private theme: BehaviorSubject<String>;
+ 
+  selectedTheme: String;
+ 
+  constructor() {
+    this.theme = new BehaviorSubject('light-theme');
+    this.getActiveTheme().subscribe(val => this.selectedTheme = val);
+  }
+ 
+  toggleAppTheme() {
+    if (this.selectedTheme === 'dark-theme') {
+      this.setActiveTheme('light-theme');
+    } else {
+      this.setActiveTheme('dark-theme');
+    }
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SettingsPage');
-  }
-
-
-    isClicked(val) {
-        console.log('Change theme to : ' + val);
+    setActiveTheme(val) {
+        this.theme.next(val);
+    }
+ 
+    getActiveTheme() {
+        return this.theme.asObservable();
     }
 }

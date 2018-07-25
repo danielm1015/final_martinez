@@ -25,10 +25,14 @@ export class MyApp {
   settingsPage = SettingsPage;
   isAuthenticated = false;
 
+  selectedTheme: String;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, 
               private menuCtrl: MenuController, private authService: AuthenticationService,
-              public googlePlus: GooglePlus)  {
+              public googlePlus: GooglePlus, private settings: SettingsPage)  {
+
+    this.settings.getActiveTheme().subscribe(val => this.selectedTheme = val);
+
     // Firebase imported and initialized
       firebase.initializeApp({
         apiKey: "AIzaSyDkISioa-vMhRwKW91KAYsn0n-M6E4MIMA",

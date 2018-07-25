@@ -67,6 +67,7 @@ export const firebaseConfig = {
     AuthenticationService,
     RssfeedServiceProvider,
     InAppBrowser,
+    SettingsPage,
     GooglePlus,
   ]
 })

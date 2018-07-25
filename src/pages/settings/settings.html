@@ -9,12 +9,8 @@
     </ion-navbar>
   </ion-header>
   
-  <ion-list>
-  <ion-item>
-      <ion-label>Night Theme</ion-label>
-          <ion-toggle (click)="isClicked(data.myToggle)"
-          [(ngModel)] ="data.myToggle">
-          </ion-toggle>
-  </ion-item>
-
-</ion-list>
+  <ion-content padding>
+    <button ion-button full icon-left (click)="toggleAppTheme()">
+      <ion-icon  name="bulb"></ion-icon>Toggle Theme
+    </button>
+  </ion-content>
